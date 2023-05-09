@@ -7,14 +7,15 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@ToString
+//@Getter
+//@Setter
+//@ToString
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Data
+@Builder
 public class User extends Object {
-
 
     @NonNull
     private String name;
