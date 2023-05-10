@@ -6,9 +6,11 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@NoArgsConstructor(force = true)
 @Entity
+@ToString
 public class Member {
 
     @Id // pk
@@ -16,16 +18,16 @@ public class Member {
     private long id;
 
     @NonNull
-    @Column
+//    @Column
     private String name;
 
-    @Column
+//    @Column
     private String email;
 
-    @Column
+//    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column
+//    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
     public Member(@NonNull String name, String email) {
