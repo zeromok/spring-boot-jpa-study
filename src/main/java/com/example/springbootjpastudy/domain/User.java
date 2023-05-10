@@ -1,8 +1,6 @@
 package com.example.springbootjpastudy.domain;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.*;
 
 import java.time.LocalDateTime;
