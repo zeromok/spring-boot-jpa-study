@@ -78,16 +78,21 @@ class MemberRepositoryTest {
 //        System.out.println("size : " + members.getSize());
 //        members.getContent().forEach(System.out::println);
 
-        ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIgnorePaths("name")
-                .withIgnorePaths("id")
-                .withIgnorePaths("createdAt")
-                .withIgnorePaths("updatedAt")
-                .withMatcher("email", endsWith());
+//        ExampleMatcher matcher = ExampleMatcher.matching()
+//                .withIgnorePaths("name")
+//                .withIgnorePaths("id")
+//                .withIgnorePaths("createdAt")
+//                .withIgnorePaths("updatedAt")
+//                .withMatcher("email", endsWith());
+//
+//        Example<Member> example = Example.of(new Member("ma", "fast@gmail.com"), matcher);
+//        userRepository.findAll(example).forEach(System.out::println);
 
-        Example<Member> example = Example.of(new Member("ma", "fast@gmail.com"), matcher);
-        userRepository.findAll(example).forEach(System.out::println);
+    }
 
+    @Test
+    void select() {
+        System.out.println(userRepository.findByName("Daniel"));
     }
 
 }

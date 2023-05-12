@@ -14,21 +14,26 @@ import java.time.LocalDateTime;
 public class Member {
 
     @Id // pk
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 순차적 데이터 증가
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 생성된 값 쓸께(순차적 데이터 증가)
     private long id;
 
     @NonNull
-//    @Column
+//    @Column(nullable = false) // notNull
     private String name;
 
 //    @Column
     private String email;
 
-//    @Column(name = "created_at")
+    private String gender;
+
+    @Column(updatable = false) // update 시 저장 안함
     private LocalDateTime createdAt;
 
-//    @Column(name = "updated_at")
+    @Column(insertable = false) // insert 시 저장 안힘
     private LocalDateTime updatedAt;
+
+    @Transient // 이 객체에서만 사용하는 필드 DB 와는 상관 없는...
+    private String  objField;
 
     public Member(@NonNull String name, String email) {
         this.name = name;
