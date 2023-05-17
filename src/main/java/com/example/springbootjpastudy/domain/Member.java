@@ -11,20 +11,26 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(force = true)
 @Entity
 @ToString
+@Table(name = "member", indexes = {@Index(columnList = "name")}, uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 public class Member {
 
     @Id // pk
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 생성된 값 쓸께(순차적 데이터 증가)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 디비에서 생성해준 값 쓸께(순차적 데이터 증가)
     private long id;
 
     @NonNull
-//    @Column(nullable = false) // notNull
+//    @Column(nullable = false) // notNull - DB에 맡기자
     private String name;
 
 //    @Column
     private String email;
 
-    private String gender;
+    @Enumerated(value = EnumType.STRING) // default - EnumType.ORDINAL : DB에 인덱스가 들어간다. 인덱스값을 반환 잠재적인 버그 많음
+    private Gender gender;
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
     @Column(updatable = false) // update 시 저장 안함
     private LocalDateTime createdAt;

@@ -1,5 +1,6 @@
 package com.example.springbootjpastudy.repository;
 
+import com.example.springbootjpastudy.domain.Gender;
 import com.example.springbootjpastudy.domain.Member;
 import jakarta.transaction.Transactional;
 import org.assertj.core.util.Lists;
@@ -95,4 +96,15 @@ class MemberRepositoryTest {
         System.out.println(userRepository.findByName("Daniel"));
     }
 
+    @Test
+    void enumTest() {
+        Member member = userRepository.findById(2L).orElseThrow(RuntimeException::new);
+        member.setGender(Gender.MALE);
+
+        userRepository.save(member);
+
+        userRepository.findAll().forEach(System.out::println);
+
+        System.out.println(userRepository.findRowRecord().get("gender"));
+    }
 }
