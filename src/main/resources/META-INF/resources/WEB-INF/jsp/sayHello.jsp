@@ -8,6 +8,8 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Title 1</h1>
+    <h1>Title 2</h1>
     Hello!
 </body>
 </html>

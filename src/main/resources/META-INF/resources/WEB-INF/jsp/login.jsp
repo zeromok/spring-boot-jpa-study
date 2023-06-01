@@ -8,6 +8,9 @@
     <title>Login</title>
 </head>
 <body>
-    Welcome to the login page!
+    <h1>Welcome to the login page!</h1>
+
+    name : ${name}
+
 </body>
 </html>
