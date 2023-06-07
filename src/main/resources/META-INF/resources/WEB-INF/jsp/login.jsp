@@ -12,7 +12,7 @@
 
 <%--    name : ${name}--%>
 
-    <form method="post">
+    <form method="post" action="http://localhost:8080/login">
         Name : <input type="text" name="name" />
         Password : <input type="password" name="password" />
         <input type="submit" />
