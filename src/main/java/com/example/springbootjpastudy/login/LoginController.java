@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class LoginController {
 
+    private AuthenticationService authenticationService;
+    public LoginController(AuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
+
     private Logger logger = LoggerFactory.getLogger(getClass());
 
 //    @GetMapping("/login")
@@ -35,10 +40,18 @@ public class LoginController {
 
     @PostMapping("/login")
     public String gotoWelcomePage(@RequestParam String name, @RequestParam String password, ModelMap model) {
-        model.put("name", name);
-        model.put("password", password);
 
-        return "welcome";
+        // 인증로직 추가
+        if (authenticationService.authenticate(name, password)) {
+            model.put("name", name);
+            model.put("password", password);
+
+            return "welcome";
+        }
+
+        model.put("error", "Login Error..! Pleas Try Again :)");
+        return "login";
+
     }
 
 } // end

@@ -14,9 +14,10 @@
 
     <form method="post" action="http://localhost:8080/login">
         Name : <input type="text" name="name" />
-        Password : <input type="password" name="password" />
+<%--        Password : <input type="password" name="password" />--%>
         <input type="submit" />
     </form>
+    <pre>${error}</pre>
 
 </body>
 </html>
